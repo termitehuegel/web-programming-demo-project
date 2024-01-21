@@ -1,27 +1,27 @@
-target
 .idea
 *.iml
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+demo-project-backend/target
+demo-project-frontend/dist
+demo-project-frontend/tmp
+demo-project-frontend/out-tsc
+demo-project-frontend/bazel-out
 
 # Node
-node_modules
+demo-project-frontend/node_modules
 npm-debug.log
 yarn-error.log
 
 # Miscellaneous
-.angular
+demo-project-frontend/.angular
 /.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+demo-project-frontend/connect.lock
+demo-project-frontend/coverage
+demo-project-frontend/libpeerconnection.log
 testem.log
-/typings
+demo-project-frontend/typings
 
 # System files
 .DS_Store
