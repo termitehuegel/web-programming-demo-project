@@ -1,0 +1,9 @@
+services:
+  frontend:
+    build: ./demo-project-frontend
+    ports:
+      - 80:80
+  backend:
+    build: ./demo-project-backend
+    ports:
+      - 8080:8080
