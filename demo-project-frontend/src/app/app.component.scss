@@ -11,6 +11,7 @@ nav mat-toolbar .spacer {
 
 nav a {
   flex-grow: 1;
+  flex-shrink: 1;
   text-decoration: none;
   color: black;
 }
@@ -37,6 +38,7 @@ footer .spacer {
 
 footer a {
   flex-grow: 1;
+  flex-shrink: 1;
   text-decoration: none;
   color: black;
 }

@@ -1,0 +1,35 @@
+h1, h2, h3 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.dish-list {
+  font-size: 20px;
+}
+
+.dish {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dish-first-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dish-description {
+  margin-left: 30px;
+}

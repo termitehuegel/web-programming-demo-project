@@ -1,1 +1,48 @@
-<p>menu works!</p>
+<h1>Menü</h1>
+<p>
+    Dies ist unser Menü, es ist nicht besonders groß aber dafür ist die Qualität umso besser.
+    Alle Gerichte, die wir anbieten, werden nach der originalen Rezeptur von Nonna zubereitet.
+</p>
+<h2>Antipasti</h2>
+<div class="dish-list">
+    <div class="dish" *ngFor="let dish of menu.appetisers">
+        <span class="dish-first-row">
+            <span>{{dish.name}}</span>
+            <span>{{Math.round(dish.price / 100).toFixed(2)  + " €"}}</span>
+        </span>
+        <span class="dish-description">{{dish.description}}</span>
+    </div>
+</div>
+
+<h2>Hauptgerichte</h2>
+<h2>Pizza</h2>
+<div class="dish-list">
+    <div class="dish" *ngFor="let dish of menu.main.pizza">
+        <span class="dish-first-row">
+            <span>{{dish.name}}</span>
+            <span>{{Math.round(dish.price / 100).toFixed(2)  + " €"}}</span>
+        </span>
+        <span class="dish-description">{{dish.description}}</span>
+    </div>
+</div>
+<h2>Pasta</h2>
+<div class="dish-list">
+    <div class="dish" *ngFor="let dish of menu.main.pasta">
+        <span class="dish-first-row">
+            <span>{{dish.name}}</span>
+            <span>{{Math.round(dish.price / 100).toFixed(2)  + " €"}}</span>
+        </span>
+        <span class="dish-description">{{dish.description}}</span>
+    </div>
+</div>
+
+<h2>Dolci</h2>
+<div class="dish-list">
+    <div class="dish" *ngFor="let dish of menu.dessert">
+        <span class="dish-first-row">
+            <span>{{dish.name}}</span>
+            <span>{{Math.round(dish.price / 100).toFixed(2)  + " €"}}</span>
+        </span>
+        <span class="dish-description">{{dish.description}}</span>
+    </div>
+</div>
