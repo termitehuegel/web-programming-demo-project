@@ -1,0 +1,42 @@
+nav mat-toolbar {
+  display: flex;
+  justify-content: space-around;
+  min-width: 900px;
+}
+
+nav mat-toolbar .spacer {
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+
+nav a {
+  flex-grow: 1;
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  max-width: 2000px;
+  margin: auto;
+}
+
+footer {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 500px;
+  min-height: 80px;
+  border-radius: 0 0 50px 50px;
+}
+
+footer .spacer {
+  flex-grow: 4;
+  flex-shrink: 4;
+}
+
+footer a {
+  flex-grow: 1;
+  text-decoration: none;
+  color: black;
+}
