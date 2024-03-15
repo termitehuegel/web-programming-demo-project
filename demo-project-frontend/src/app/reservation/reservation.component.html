@@ -1,1 +1,52 @@
-<p>reservation works!</p>
+<h1>Reservierung</h1>
+<p>
+    <img id="image-trattoria-inside-with-card" alt="Bild in der Trattoria und Karte" src="assets/images/trattoriaCard.jpg">
+    Wir sind stolz darauf, dass wir seit einiger Zeit nun auch die Möglichkeit bieten direkt über unsere Webseite bei uns Tische zu reservieren.
+    Es ist ganz simpel, füllen Sie einfach das Formular auf dieser Seite aus und schicken Sie es ab.
+    Wir erlauben derzeit aber nur Reservierungen bis zu einer Gruppengröße von 15 Personen.
+    Das hat den Grund, dass wir böswillige Reservierungen vermeiden wollen. <br>
+    Wenn Sie bei uns einen Tisch reservieren, dann ist Ihnen der Tisch für die nächsten 2,5 Stunden sicher.
+    Wir bitten Sie darum diese Zeit aus Rücksicht auf die anderen Kunden zu berücksichtigen.
+    Wir ermutigen Sie jedoch dazu die Reservierung direkt bei uns in der Trattoria zu besprechen, sollten Sie eine größere Gruppe haben. <br>
+    Wir freuen uns schon Sie bewirten zu dürfen. <br>
+    Buon appetito!
+
+</p>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <h2 *ngIf="success === true" class="success">Ihre Reservierung wurde erfolgreich ausgeführt!</h2>
+    <h2 *ngIf="success === false" class="failure">Bei der Reservierung ist es zu einem unvorhergesehen Fehler gekommen!</h2>
+    <div>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput name="name" type="text" [minlength]="3" [maxlength]="50" ngModel>
+        </mat-form-field>
+        <span>Über diesen Namen werden wir Sie identifizieren. Wir bitten deshalb darum, dass Sie Ihren eigenen Nachnamen angeben.</span>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Anzahl der Personen</mat-label>
+            <input matInput name="amount" type="number" max="15" min="1" ngModel (ngModelChange)="updateTimes(form)">
+        </mat-form-field>
+        <span>Wir werden einen Tisch für Ihre Gruppengröße bereithalten.</span>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Datum</mat-label>
+            <input matInput name="date" type="date" min="{{ reservationPeriodStart }}" max="{{ reservationPeriodEnd }}" value ngModel (ngModelChange)="updateTimes(form)">
+        </mat-form-field>
+        <span>Wir bitten Sie ein Datum und eine Gruppengröße zu wählen, damit wir nach möglichen Zeitslots suchen können.</span>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Zeitslot</mat-label>
+            <mat-select name="time" ngModel>
+                    <mat-option *ngFor="let time of times" [value]="time">{{ time.hours | number: '2.0-0' }}:{{ time.minutes | number: '2.0-0' }} Uhr</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="button-row">
+        <button mat-raised-button color="warn" type="reset">Reset</button>
+        <button mat-raised-button color="primary" type="submit" class="but">Submit</button>
+    </div>
+</form>

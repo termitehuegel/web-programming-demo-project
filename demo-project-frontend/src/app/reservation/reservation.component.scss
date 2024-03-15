@@ -1,0 +1,51 @@
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+p {
+  font-size: 20px;
+}
+
+#image-trattoria-inside-with-card {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 20px;
+  float: right;
+  margin-left: 20px;
+}
+
+form {
+  border: 2px dashed lightgray;
+  padding: 50px;
+}
+
+form mat-form-field {
+  margin: 20px;
+}
+
+form span {
+  font-size: 20px;
+  color: gray;
+}
+
+form button {
+  font-size: 25px;
+  padding: 10px 30px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.success {
+  color: darkgreen;
+}
+
+.failure {
+  color: darkred;
+}
