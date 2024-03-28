@@ -1,13 +1,14 @@
 # Demo Project Frontend
 
 This part of the project represents the frontend of the demo project.
-It is written in angular.
+It is written in angular and communicates with the backend via HTTP.
 
 ## Prerequisites
 
 Inorder for the build process to work it is necessary for the user to have `node.js` installed.
 Binaries for node.js can be found under https://nodejs.org/en.
-After installing node execute `npm install` in this directory.
+Next you should install the Angular CLI via `npm install -g @angular/cli`.
+After installing Angular execute `npm install` in this directory.
 Subsequently, a `/node_modules/` directory should appear.
 
 Inorder to run the project it is recommended to install `docker` (and `docker-compose`).
@@ -25,4 +26,4 @@ provided `docker-compose.yaml` (parent directory).
 
 But you can execute this project without docker as well (not recommended) by starting your own webserver which
 serves the `/dist/demo-project-frontend/browser/` directory.
-Alternatively, you can start a development webserver under the port 80 with `ng serve`.
+Alternatively, you can start a development webserver under the port 4200 with `ng serve`.

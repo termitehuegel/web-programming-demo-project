@@ -15,7 +15,7 @@ Under windows please install `docker desktop` (https://www.docker.com/products/d
 
 ## Build
 
-Inorder to build this part of the project run `mvn clean install`. 
+Inorder to build this part of the project run `mvn clean install` in this directory. 
 The output can be found under the `/target/` directory.
 
 ## Running
@@ -25,5 +25,5 @@ provided `docker-compose.yaml` (parent directory).
 
 But you can execute this project without docker as well (not recommended) by starting the `start.bat`
 in the `/target/demo-project-backend-<Version>-bin/` directory.
-If you aren't using windows than copy the command from the `start.bat`.
+If you aren't using windows than use an equivalent command to the one used in the `start.bat` for your system.
 It is expected that a sufficiently new version of `java` is installed and registered as a system variable.

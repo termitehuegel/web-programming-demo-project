@@ -25,17 +25,20 @@ For more information about this, please read the corresponding `README.md`.
 To build the backend navigate to the `./demo-project-backend/` subdirectory and execute `mvn clean install`.
 If you did everything right, then the `./demo-project-backend/target/` directory should have appeared.
 
-To build the frontend of the project navigate to the `./demo-project-frontend/` subdirectory and execute `npm install`
-and after it successfully finished execute `ng build`.
+To build the frontend of the project navigate to the `./demo-project-frontend/` subdirectory and execute `npm install -g @angular/cli`.
+Following that execute`npm install`and after it successfully finished execute `ng build`.
 If you did everything right, then the `./demo-project-frontend/dist/` directory should have appeared.
 
 For more detailed information about the build process, consult the `README.md` of the corresponding subproject.
 
 ## Running
 
-Inorder to execute this project please build both parts of the project as described above and then execute 
-`docker compose up --build` in this working directory. 
-The docker compose starts both parts of this project as a service.
-The frontend is available under http://localhost:80/ while the backend works starts under http://localhost:8080/.
+Inorder to run this project you can execute `docker compose up` in this directory.
+The images will be downloaded automatically from githubs package registry.
+When this step is successful the Frontend should be reachable unter http://localhost:80/ and the backend
+should have started unter http://localhost:8080/.
+
+Alternatively you can build both projects as detailed above and execute `docker compose up --build` to build the images
+yourself. Though it is recommended to use the first option.
 
 For more information and other running configurations please consult the corresponding `README.md` of a subproject.
