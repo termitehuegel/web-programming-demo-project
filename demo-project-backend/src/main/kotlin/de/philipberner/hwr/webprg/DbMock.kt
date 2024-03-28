@@ -66,5 +66,6 @@ class DbMock(
         Reservation("Max Muster", 7, LocalDate.now().plusDays(7), LocalTime.of(17, 0)),
         Reservation("Max Muster", 7, LocalDate.now().plusDays(7), LocalTime.of(18, 0)),
         Reservation("Max Muster", 7, LocalDate.now().plusDays(7), LocalTime.of(19, 0))
-    )
+    ),
+    val orders: MutableList<Order> = mutableListOf()
 )

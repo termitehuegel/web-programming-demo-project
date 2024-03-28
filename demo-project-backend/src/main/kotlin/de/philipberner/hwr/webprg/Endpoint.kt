@@ -81,4 +81,21 @@ class Endpoint(
 
         db.reservations.add(reservation)
     }
+
+    @CrossOrigin(originPatterns = ["*"])
+    @PutMapping("orders")
+    fun order(@RequestBody order: Order) {
+        if (order.items.isEmpty() ||
+            order.items.any { it.amount <= 0 } ||
+            order.items.any { db.dishes.none { dish -> dish.name == it.dish.name && dish.price == it.dish.price } } ||
+            order.deliveryInformation.name.isEmpty() ||
+            order.deliveryInformation.firstName.isEmpty() ||
+            order.deliveryInformation.street.isEmpty() ||
+            order.deliveryInformation.houseNumber.isEmpty() ||
+            order.deliveryInformation.postcode.length != 5 ||
+            !order.deliveryInformation.postcode.matches("""^[0-9]{5}$""".toRegex())
+        ) throw BadRequestException()
+
+        db.orders.add(order)
+    }
 }
