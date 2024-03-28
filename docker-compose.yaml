@@ -1,10 +1,11 @@
 services:
   frontend:
-    image: ghcr.io/termitehuegel/web-programming-demo-project:frontend-latest
-#    build: ./demo-project-frontend
+    image: ghcr.io/termitehuegel/web-programming-demo-project-frontend:latest
+    build: ./demo-project-frontend
     ports:
       - 80:80
   backend:
+    image: ghcr.io/termitehuegel/web-programming-demo-project-backend:latest
     build: ./demo-project-backend
     ports:
       - 8080:8080
