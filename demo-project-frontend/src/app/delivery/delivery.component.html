@@ -1,1 +1,92 @@
-<p>delivery works!</p>
+<h1>Bestellungen</h1>
+<p>
+    Wir freuen uns darüber neben Telefonbestellungen nun auch Bestellungen direkt über unsere Webseite entgegenzunehmen.
+    Ihre Bestellung muss keinen Mindestbestellwert erreichen. <br>
+    Das Bestellübungsformular, welches Sie unten finden, verhält sich analog zu einer Telefonbestellung bei uns.
+    Deshalb ist leider nur eine Barzahlung beim Erhalt der Lieferung möglich. <br>
+    Sie können sich jedoch darauf freuen schon in naher zukunft Bargeldlos bei uns zu zahlen. <br>
+    Wir freuen uns auf Ihre Bestellung!
+</p>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <h2 *ngIf="success === true" class="success">Ihre Bestellung ist bei uns eingegangen!</h2>
+    <h2 *ngIf="success === false" class="failure">Bei der Verarbeitung Ihrer Bestellung kam es zu einem Fehler!</h2>
+    <mat-card>
+        <mat-card-header>
+            <h3>Bestellung</h3>
+        </mat-card-header>
+        <mat-card-content>
+            <table id="order-table" mat-table [dataSource]="orderDataSource" aria-label="items in the order">
+                <ng-container matColumnDef="dish">
+                    <th class="orderColumnDish" mat-header-cell *matHeaderCellDef> Gericht </th>
+                    <td class="orderColumnDish" mat-cell *matCellDef="let order"> {{ order.dish.name }} </td>
+                    <td class="orderColumnDish" mat-footer-cell *matFooterCellDef> Summe </td>
+                </ng-container>
+                <ng-container matColumnDef="amount">
+                    <th class="orderColumnAmount" mat-header-cell *matHeaderCellDef> Anzahl </th>
+                    <td class="orderColumnAmount" mat-cell *matCellDef="let order">
+                        <button *ngIf="order.amount > 0" mat-button color="primary" (click)="decreaseAmount(order)" type="button" aria-label="decrease amount button">-</button>
+                        {{ order.amount }}
+                        <button mat-button color="primary" (click)="increaseAmount(order)" type="button" aria-label="increase amount button">+</button>
+                    </td>
+                    <td class="orderColumnAmount" mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                    <th class="orderColumnPrice" mat-header-cell *matHeaderCellDef> Preis </th>
+                    <td class="orderColumnPrice" mat-cell *matCellDef="let order"> {{ (order.dish.price * order.amount / 100).toFixed(2)  + " €" }} </td>
+                    <td class="orderColumnPrice" mat-footer-cell *matFooterCellDef> {{ (totalCost() / 100).toFixed(2) + " €" }} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="orderDisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: orderDisplayedColumns"></tr>
+                <tr mat-footer-row *matFooterRowDef="orderDisplayedColumns"></tr>
+            </table>
+            <div class="button-row">
+                <button mat-button color="primary" (click)="openAddDishDialog()"  type="button">Weitere Gerichte</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <h3>Lieferdaten</h3>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="input-row">
+                <mat-form-field class="medium">
+                    <mat-label>Name</mat-label>
+                    <input matInput name="name" type="text" [minlength]="1" [maxlength]="50" ngModel>
+                </mat-form-field>
+                <mat-form-field class="medium">
+                    <mat-label>Vorname</mat-label>
+                    <input matInput name="firstname" type="text" [minlength]="1" [maxlength]="50" ngModel>
+                </mat-form-field>
+            </div>
+            <div class="input-row">
+                <mat-form-field class="large">
+                    <mat-label>Straße</mat-label>
+                    <input matInput name="street" type="text" [minlength]="1" [maxlength]="50" ngModel>
+                </mat-form-field>
+
+                <mat-form-field class="small">
+                    <mat-label>Hausnummer</mat-label>
+                    <input matInput name="housenumber" type="text" [minlength]="1" [maxlength]="10" ngModel>
+                </mat-form-field>
+
+                <mat-form-field class="small">
+                    <mat-label>Postleitzahl</mat-label>
+                    <input matInput name="postcode" type="postcode" pattern="[0-9]*" [minlength]="5" [maxlength]="5" ngModel>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full">
+                    <mat-label>Lieferhinweise</mat-label>
+                    <textarea matInput name="note" [minlength]="0" [maxlength]="100000" ngModel></textarea>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content class="button-row">
+                <button mat-raised-button color="warn" type="reset">Reset</button>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-content>
+    </mat-card>
+</form>

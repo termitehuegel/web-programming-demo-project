@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Weitere Gerichte</h1>
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+<div class="dish" *ngFor="let dish of dishes" (click)="selectDish(dish)">
+    <span>{{ dish.name }}</span>
+    <span>{{ (dish.price / 100).toFixed(2) + " €" }}</span>
+</div>
+<p *ngIf="dishes.length == 0">
+    Wir haben keine weiteren Gerichte als jene, welche bereits in Ihrer Bestellung vorhanden sind.
+</p>
+</mat-dialog-content>

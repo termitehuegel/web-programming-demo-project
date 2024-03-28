@@ -1,0 +1,28 @@
+* {
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-dialog-content {
+  min-width: 500px;
+  max-width: 800px;
+}
+
+.dish {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: 250ms;
+}
+
+.dish:hover {
+  background-color: lightgray;
+  color: black;
+  transition: 250ms;
+  cursor: pointer;
+}

@@ -1,0 +1,104 @@
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 20px;
+}
+
+form {
+  border: 2px dashed lightgray;
+  padding: 50px;
+}
+
+mat-card {
+  margin-bottom: 10px;
+}
+
+mat-card-header {
+  justify-content: center;
+  border-bottom: 2px solid lightgray;
+}
+
+form .input-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+form mat-form-field {
+  margin: 20px;
+}
+
+form .full {
+  width: 95%;
+}
+
+form .large {
+  width: 60%;
+  min-width: 200px;
+}
+
+form .medium {
+  width: 33%;
+  min-width: 100px;
+}
+
+form .small {
+  width: 15%;
+  min-width: 50px;
+}
+
+form button {
+  font-size: 25px;
+  padding: 10px 30px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.success {
+  color: darkgreen;
+}
+
+.failure {
+  color: darkred;
+}
+
+#order-table {
+  width: 100%;
+}
+
+#order-table * {
+  font-size: 20px;
+}
+
+#order-table .orderColumnPrice {
+  text-align: right;
+  width: 15%;
+}
+
+#order-table .orderColumnAmount {
+  text-align: right;
+  width: 25%;
+}
+
+#order-table tr.mat-mdc-footer-row td {
+  font-weight: bold;
+}
+
+#order-table tr.mat-mdc-header-row th {
+  font-weight: bold;
+}
+
