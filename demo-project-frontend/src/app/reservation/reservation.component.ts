@@ -87,14 +87,15 @@ export class ReservationComponent {
             amount: values.amount,
             date: values.date,
             time: (values.time.hours > 9 ? values.time.hours : "0" + values.time.hours) + ":" + (values.time.minutes > 9 ? values.time.minutes : "0" + values.time.minutes)
-        }).subscribe(() => {
+        }).subscribe({
+            next: () => {
                 form.resetForm()
                 this.success = true
-            }, e => {
+            },
+            error: (e) => {
                 this.success = false
                 form.resetForm()
             }
-        )
-
+        })
     }
 }
